@@ -1,69 +1,131 @@
 # VDT Care
 
-An AI-powered accessibility assistant that helps users read computer screens more comfortably by detecting viewing distance and adjusting readability in real time.
+An AI-powered accessibility assistant that helps users read computer screens more comfortably by detecting viewing distance and adapting screen readability in real time.
+
+---
+
+## Overview
+
+VDT Care is a computer vision project inspired by real-world observations made while working in an optical store.
+
+The project explores how AI and adaptive interfaces can improve screen readability for individuals who struggle to see computer displays clearly but may not have access to specialized vision correction solutions.
+
+Rather than replacing prescription eyewear, VDT Care aims to provide software-based accessibility assistance that helps reduce visual strain and improve digital comfort during everyday computer use.
 
 ---
 
 ## Background
 
-While working at an optical store, I frequently met patients who struggled to read computer screens clearly.
+While working in an optical store, I regularly met patients who experienced difficulty reading computer screens.
 
-Many of them wore everyday prescription glasses but did not have computer-specific (VDT) glasses optimized for monitor viewing distances.
+One particular group stood out to me.
 
-As a result, I observed a common pattern:
+Many were older adults experiencing presbyopia (age-related loss of near vision) or workers whose jobs required them to constantly switch between reading small printed text and viewing computer screens.
 
-- Leaning closer to the monitor
-- Moving their head back and forth to find a clearer focal point
-- Squinting while reading text
-- Maintaining poor posture for extended periods
+Examples included:
 
-Although these users often needed better vision correction for computer work, they still had to continue working, studying, or browsing on their devices.
+* Warehouse workers reading shipping labels while using computer systems
+* Office workers switching between paperwork and monitors
+* Administrative staff processing documents throughout the day
 
-This observation led me to ask a simple question:
+In many cases, specialized optical solutions already existed.
 
-> Can software help users read screens more comfortably when their visual setup is not ideal?
+These included:
 
-VDT Care was created to explore that question.
+* Progressive lenses
+* Occupational lenses
+* Computer-specific (VDT) glasses
+
+However, many patients were unable to obtain these solutions due to financial constraints.
+
+Even with vision insurance, progressive lenses can easily cost several hundred dollars. Without insurance, lens costs alone may exceed $400 before frames are included.
+
+As a result, many patients continued using glasses optimized for only one viewing distance:
+
+* Reading glasses for near vision
+* Distance glasses for far vision
+
+Neither option adequately supported frequent transitions between near and intermediate viewing distances.
+
+To compensate, patients often:
+
+* Leaned closer to their monitors
+* Moved their heads back and forth
+* Adjusted their posture repeatedly
+* Squinted to read small text
+* Moved screens closer than recommended viewing distances
+
+As someone working directly with these patients, I often felt limited in the solutions I could offer.
+
+In many situations, my best recommendation was simply:
+
+> "Try moving your monitor closer, or try to have monitor and the object closer together."
+
+That experience led me to ask a question:
+
+> Could software help bridge part of this accessibility gap when specialized vision correction is unavailable?
+
+VDT Care was created to explore that possibility.
 
 ---
 
 ## Problem Statement
 
-Many accessibility tools focus on users with diagnosed visual impairments.
+Many accessibility tools focus primarily on users with diagnosed visual impairments.
 
-However, there is a large group of users who experience temporary or situational difficulty reading screens:
+However, there is a large population of users who experience situational or economically constrained visual challenges.
 
-- Users without computer-specific glasses
-- Users with outdated prescriptions
-- Users experiencing digital eye strain
-- Users working long hours in front of monitors
-- Older adults with reduced near/intermediate vision
+These include:
 
-These users often compensate by moving closer to the screen, which may increase:
+* Users without computer-specific glasses
+* Users with outdated prescriptions
+* Individuals unable to afford progressive lenses
+* Workers spending extended periods in front of monitors
+* Older adults experiencing age-related changes in vision
+* Individuals whose insurance does not adequately cover specialized lenses
 
-- Eye fatigue
-- Neck strain
-- Poor posture habits
-- Overall visual discomfort
+Although effective optical solutions may exist, they are not always accessible.
 
-The challenge is that most software applications are unaware that the user is struggling.
+As a result, users frequently develop compensatory behaviors that increase:
 
-VDT Care aims to make screen interfaces more responsive to the user's visual behavior.
+* Eye strain
+* Neck strain
+* Poor posture habits
+* Visual fatigue
+* Overall discomfort during computer use
+
+Most software applications remain unaware when a user is struggling to read content.
+
+VDT Care aims to create a more responsive and adaptive user experience.
+
+---
+
+## Project Goal
+
+The goal of VDT Care is **not to replace prescription eyewear**.
+
+Instead, the project seeks to provide software-based adaptive readability assistance that can help users interact with digital content more comfortably.
+
+By understanding how users physically respond to visual difficulty, the application can automatically adapt the interface to improve readability and reduce strain.
 
 ---
 
 ## Proposed Solution
 
-VDT Care uses computer vision to estimate a user's viewing distance and posture through a standard webcam.
+VDT Care uses computer vision to monitor user behavior through a standard webcam.
 
-When the system detects that the user repeatedly moves too close to the screen, it can:
+When the system detects that a user repeatedly moves closer to the monitor or exhibits behaviors associated with visual difficulty, it can automatically provide accessibility adjustments.
 
-- Increase text size
-- Improve contrast
-- Recommend accessibility adjustments
-- Track patterns of visual strain over time
+Potential responses include:
 
-Instead of requiring users to manually adjust settings, the system proactively adapts based on observed behavior.
+* Increasing text size
+* Improving contrast
+* Adjusting zoom levels
+* Recommending accessibility settings
+* Providing visual comfort alerts
+* Tracking patterns of visual strain over time
+
+Instead of requiring users to manually identify and adjust settings, the system proactively adapts based on observed behavior.
 
 ---
 
@@ -71,29 +133,40 @@ Instead of requiring users to manually adjust settings, the system proactively a
 
 ### Step 1: Face Detection
 
-The webcam captures video frames and identifies facial landmarks using MediaPipe.
+The webcam captures video frames and detects facial landmarks using MediaPipe.
 
 ### Step 2: Distance Estimation
 
-Facial landmark measurements are used to estimate the user's distance from the monitor.
+Facial landmark measurements are used to estimate the user's distance from the screen.
 
 ### Step 3: Behavior Analysis
 
-The system monitors changes in viewing distance and identifies repeated forward-leaning behavior.
+The system monitors viewing patterns and identifies behaviors such as:
+
+* Repeated forward leaning
+* Excessive screen proximity
+* Frequent posture adjustments
 
 ### Step 4: Accessibility Response
 
-If the user consistently moves closer than a predefined threshold, readability settings are adjusted automatically.
+When predefined thresholds are exceeded, the system can dynamically adjust readability settings.
 
-### Step 5: Usage Analytics
+Examples include:
 
-The application records metrics such as:
+* Enlarging text
+* Increasing contrast
+* Providing recommendations to improve visual comfort
 
-- Average viewing distance
-- Frequency of forward-leaning events
-- Daily visual strain indicators
+### Step 5: Analytics Dashboard
 
-These metrics are displayed through a simple dashboard.
+The application records usage metrics such as:
+
+* Average viewing distance
+* Frequency of forward-leaning events
+* Daily visual strain indicators
+* Accessibility intervention frequency
+
+These metrics are displayed through a user dashboard.
 
 ---
 
@@ -101,21 +174,24 @@ These metrics are displayed through a simple dashboard.
 
 ### Computer Vision
 
-- Real-time face tracking
-- Facial landmark detection
-- Distance estimation
+* Real-time face tracking
+* Facial landmark detection
+* Distance estimation
+* User posture monitoring
 
 ### Accessibility Features
 
-- Dynamic text scaling
-- Contrast adjustment recommendations
-- Visual comfort alerts
+* Dynamic text scaling
+* Contrast enhancement recommendations
+* Readability assistance triggers
+* Visual comfort alerts
 
 ### Analytics
 
-- Viewing distance history
-- Forward-leaning frequency
-- Session summaries
+* Viewing distance history
+* Session summaries
+* Behavioral trend tracking
+* Accessibility usage metrics
 
 ---
 
@@ -123,41 +199,46 @@ These metrics are displayed through a simple dashboard.
 
 ### Computer Vision
 
-- OpenCV
-- MediaPipe
+* OpenCV
+* MediaPipe
 
 ### Backend
 
-- Python
-- FastAPI
+* Python
+* FastAPI
 
 ### Data Processing
 
-- Pandas
+* Pandas
 
-### Frontend / Dashboard
+### Frontend & Dashboard
 
-- Streamlit
+* Streamlit
 
 ### Version Control
 
-- Git
-- GitHub
+* Git
+* GitHub
 
 ---
 
 ## Why This Project Matters
 
-This project is inspired by a real-world problem observed while working in an optical store.
+This project originated from firsthand observations while working in an optical store.
 
-Rather than building AI solely as a technical exercise, the goal is to explore how computer vision can improve accessibility and reduce everyday visual discomfort.
+I repeatedly encountered individuals whose visual challenges could potentially be addressed through specialized optical solutions, yet cost and insurance limitations often prevented access to those solutions.
 
-VDT Care represents an intersection of:
+VDT Care explores whether AI and computer vision can provide an additional layer of accessibility support through software.
 
-- Computer Vision
-- Human-Centered AI
-- Accessibility
-- Digital Health
+The project sits at the intersection of:
+
+* Computer Vision
+* Human-Centered AI
+* Accessibility Technology
+* Digital Health
+* Real-World Problem Solving
+
+Rather than building AI solely as a technical exercise, my goal is to explore how technology can help people continue working, reading, and interacting with digital information more comfortably.
 
 ---
 
@@ -165,15 +246,18 @@ VDT Care represents an intersection of:
 
 🚧 In Development
 
-Current milestone:
+Current Milestones:
 
-- [x] Project planning
-- [x] Repository setup
-- [ ] Webcam integration
-- [ ] Face landmark detection
-- [ ] Distance estimation
-- [ ] Accessibility adjustments
-- [ ] Dashboard implementation
+* [x] Problem Definition
+* [x] Project Planning
+* [x] Repository Setup
+* [x] Technical Architecture Design
+* [ ] Webcam Integration
+* [ ] Face Landmark Detection
+* [ ] Distance Estimation
+* [ ] Accessibility Response System
+* [ ] Analytics Dashboard
+* [ ] MVP Release
 
 ---
 
@@ -181,18 +265,20 @@ Current milestone:
 
 Potential future improvements include:
 
-- Multi-monitor support
-- Personalized calibration
-- Eye strain prediction models
-- Workplace accessibility integrations
-- Browser extension deployment
+* Personalized user calibration
+* Eye strain prediction models
+* Multi-monitor support
+* Workplace accessibility integrations
+* Browser extension deployment
+* Operating system accessibility integration
+* AI-powered adaptive interface optimization
 
 ---
 
 ## Author
 
-Sungjun An
+**Sungjun An**
 
 Data Science Graduate
 
-Interested in Computer Vision, Accessibility, AI Applications, and Data-Driven Solutions that improve people's daily lives.
+Interested in Computer Vision, Accessibility Technology, Human-Centered AI, and Data-Driven Solutions that improve people's daily lives.
