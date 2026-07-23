@@ -135,6 +135,20 @@ not for stack breadth. See [What I Considered and Cut](#what-i-considered-and-cu
 
 ---
 
+## Getting Started
+
+**Prerequisites:** Node.js 18+ and npm
+
+```bash
+npm install
+npm run dev
+```
+
+Then open the printed local URL (typically `http://localhost:5173`) and
+allow camera access.
+
+---
+
 ## How It Works
 
 1. **Face detection** — webcam frames processed via MediaPipe FaceLandmarker
@@ -154,10 +168,11 @@ not for stack breadth. See [What I Considered and Cut](#what-i-considered-and-cu
 - [x] Problem definition
 - [x] Mentor feedback incorporated, scope narrowed
 - [x] Technical feasibility spike (webcam distance detection via MediaPipe)
-- [x] MVP UI (React + TS + Vite)
+- [x] `useFaceDistance` hook ported into MVP, verified against spike
 - [ ] Sustained-pattern detection logic
 - [ ] Recommendation UI
 - [ ] Usability testing
+- [ ] Deployment
 
 ---
 
@@ -175,4 +190,5 @@ not for stack breadth. See [What I Considered and Cut](#what-i-considered-and-cu
 
 Data Science graduate. Built this after observing the problem firsthand
 while working at an optometry clinic — interested in computer vision,
-accessibility, and software that responds to problems people don't yet know they have.
+accessibility, and software that responds to problems people don't
+yet know they have.

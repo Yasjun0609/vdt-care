@@ -122,6 +122,20 @@ VDT Care는 바로 이 지점을 겨냥합니다: 사용자가 알아채고 행�
 
 ---
 
+## 시작하기
+
+**필요 환경:** Node.js 18 이상, npm
+
+```bash
+npm install
+npm run dev
+```
+
+터미널에 출력되는 로컬 주소(보통 `http://localhost:5173`)를 열고
+카메라 권한을 허용하세요.
+
+---
+
 ## 작동 방식
 
 1. **얼굴 인식** — MediaPipe FaceLandmarker로 웹캠 프레임 처리
@@ -140,10 +154,11 @@ VDT Care는 바로 이 지점을 겨냥합니다: 사용자가 알아채고 행�
 - [x] 문제 정의
 - [x] 멘토 피드백 반영, 스코프 축소
 - [x] 기술 검증 스파이크 (MediaPipe 기반 웹캠 거리 감지)
-- [x] MVP UI (React + TS + Vite)
+- [x] `useFaceDistance` 훅을 MVP로 포팅, 스파이크와 대조 검증 완료
 - [ ] 지속 패턴 감지 로직
 - [ ] 추천 UI
 - [ ] 사용성 테스트
+- [ ] 배포
 
 ---
 
