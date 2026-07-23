@@ -154,7 +154,7 @@ not for stack breadth. See [What I Considered and Cut](#what-i-considered-and-cu
 - [x] Problem definition
 - [x] Mentor feedback incorporated, scope narrowed
 - [x] Technical feasibility spike (webcam distance detection via MediaPipe)
-- [ ] MVP UI (React + TS + Vite)
+- [x] MVP UI (React + TS + Vite)
 - [ ] Sustained-pattern detection logic
 - [ ] Recommendation UI
 - [ ] Usability testing

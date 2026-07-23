@@ -140,7 +140,7 @@ VDT Care는 바로 이 지점을 겨냥합니다: 사용자가 알아채고 행�
 - [x] 문제 정의
 - [x] 멘토 피드백 반영, 스코프 축소
 - [x] 기술 검증 스파이크 (MediaPipe 기반 웹캠 거리 감지)
-- [ ] MVP UI (React + TS + Vite)
+- [x] MVP UI (React + TS + Vite)
 - [ ] 지속 패턴 감지 로직
 - [ ] 추천 UI
 - [ ] 사용성 테스트
